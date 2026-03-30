@@ -1,0 +1,11 @@
+<script>
+  function getVals() {
+    return [parseFloat(document.getElementById('a').value),
+            parseFloat(document.getElementById('b').value)];
+  }
+  function show(val) {
+    document.getElementById('result').textContent = val;
+  }
+
+  function add() { const [a,b] = getVals(); show(a + b); }
+</script>
