@@ -1,0 +1,18 @@
+<html>
+<head>
+    <title>Calculator</title>
+</head>
+<body>
+    <script>
+  function getVals() {
+    return [parseFloat(document.getElementById('a').value),
+            parseFloat(document.getElementById('b').value)];
+  }
+  function show(val) {
+    document.getElementById('result').textContent = val;
+  }
+
+  function mul() { const [a,b] = getVals(); show(a * b); }
+</script>
+</body>
+</html>
