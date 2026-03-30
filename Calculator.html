@@ -1,18 +1,73 @@
 <html>
-<head>
-    <title>Calculator</title>
-</head>
-<body>
-    <script>
-  function getVals() {
-    return [parseFloat(document.getElementById('a').value),
-            parseFloat(document.getElementById('b').value)];
-  }
-  function show(val) {
-    document.getElementById('result').textContent = val;
-  }
+    <head>
+        <title>Calculator</title>
+        <style>
+            .box {
+                width: auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+            }
 
-  function mul() { const [a,b] = getVals(); show(a * b); }
-</script>
-</body>
+            .inputs {
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+            }
+
+            #result {
+                margin: 10px 0;
+                text-align: center;
+            }
+
+            .buttons {
+                display: flex;
+                justify-content: center;
+                gap: 42px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <div class="inputs">
+                <input type="number" id="a" placeholder="Number 1" />
+                <input type="number" id="b" placeholder="Number 2" />
+            </div>
+            <div id="result">OUTPUT</div>
+            <div class="buttons">
+                <button onclick="add()">Add</button>
+                <button onclick="sub()">Subtract</button>
+                <button onclick="mul()">Multiply</button>
+                <button onclick="div()">Divide</button>
+            </div>
+        </div>
+
+        <script>
+            function getVals() {
+                return [
+                    parseFloat(document.getElementById("a").value),
+                    parseFloat(document.getElementById("b").value),
+                ];
+            }
+
+            function show(val) {
+                document.getElementById("result").textContent = val;
+            }
+
+            function div() {
+                const [a, b] = getVals();
+                if (b === 0) {
+                    show("Cannot divide by 0.");
+                } else {
+                    show(a / b);
+                }
+
+            function add() { const [a,b] = getVals(); show(a + b); }
+              
+            function mul() { const [a,b] = getVals(); show(a * b); }
+        </script>
+    </body>
 </html>
+
